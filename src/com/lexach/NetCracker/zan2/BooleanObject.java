@@ -1,5 +1,7 @@
 package com.lexach.NetCracker.zan2;
 
+import java.util.ArrayList;
+
 public abstract class BooleanObject {
     protected char object;
 
@@ -16,9 +18,13 @@ public abstract class BooleanObject {
         setObject(inObj);
     }
 
+    //вывод BooleanObject
     public void print(){
         System.out.print(object);
     }
 
-
+    //Метод упрощение по дефолту возвращает первоначальную функцию, не производя изменений
+    public ArrayList<BooleanObject> simplify(ArrayList<BooleanObject> function, int i) {
+        return function;
+    }
 }

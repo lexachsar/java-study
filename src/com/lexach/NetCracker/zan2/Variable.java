@@ -1,8 +1,20 @@
 package com.lexach.NetCracker.zan2;
 
 class Variable extends BooleanObject{
-    Variable(char inObj){
+    /*
+    private boolean isNot;
+
+    public boolean getIsNot(){
+        return isNot;
+    }
+    */
+
+    Variable(char inObj/*, int numberOfNots*/) {
         super(inObj);
+        /*if(numberOfNots % 2 == 0)
+            isNot = true;
+        else
+            isNot = false;*/
     }
 
     private boolean statement;

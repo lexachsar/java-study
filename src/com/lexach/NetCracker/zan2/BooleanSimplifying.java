@@ -64,8 +64,13 @@ public class BooleanSimplifying {
         return booleanFunctionResult;
     }
 
-    private static ArrayList<BooleanObject> booleanSimplifying(){
+    private static ArrayList<BooleanObject> booleanSimplifying(ArrayList<BooleanObject> function) {
+        for (int i = 0; i < function.size(); i++) {
+            if (function.get(i).getObject() == not)
+                function.get(i).simplify(function, i);
+        }
 
+        return function;
     }
 
     private static ArrayList<BooleanObject> booleanFunctionPrint(ArrayList<BooleanObject> function){
@@ -77,6 +82,6 @@ public class BooleanSimplifying {
     public static void main(String args[]){
         String booleanFunction = new String( "(x + !x)" );
 
-        booleanFunctionPrint( fromStringToBooleanFunction(booleanFunction) );
+        booleanFunctionPrint(booleanSimplifying(fromStringToBooleanFunction(booleanFunction)));
     }
 }
