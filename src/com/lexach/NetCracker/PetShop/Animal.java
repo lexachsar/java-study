@@ -1,6 +1,6 @@
 package com.lexach.NetCracker.PetShop;
 
-import java.util.List;
+import java.util.HashSet;
 
 public interface Animal {
     //???Следует ли объявлять здесь гетеры и сетеры, не лучше ли это сделать в абстрактном классе???
@@ -10,5 +10,5 @@ public interface Animal {
 
     Integer getCost();
 
-    List<String> getCharacter();
+    HashSet<String> getCharacter();
 }

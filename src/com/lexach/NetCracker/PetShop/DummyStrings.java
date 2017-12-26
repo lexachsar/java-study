@@ -2,6 +2,7 @@ package com.lexach.NetCracker.PetShop;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Random;
 
 public interface DummyStrings {
@@ -22,7 +23,7 @@ public interface DummyStrings {
     public static final ArrayList<String> askForNewAnimal = new ArrayList<String>(Arrays.asList(
             "Подозрительный незнакомец в пальто принес вам странное животное. Вас завтра увольняют, поэтому нет смысла разбираться, что это такое. Введите любые данные."));
 
-    public static final ArrayList<String> names = new ArrayList<String>(Arrays.asList("Барсик", "Буся", "Джим", "Брида"));
+    public static final HashSet<String> names = new HashSet<String>(Arrays.asList("Барсик", "Буся", "Джим", "Брида"));
 
-    public static final ArrayList<String> characters = new ArrayList<String>(Arrays.asList("Добрый", "Веселый", "Хитрый", "Прожорливый"));
+    public static final HashSet<String> characters = new HashSet<String>(Arrays.asList("Добрый", "Веселый", "Хитрый", "Прожорливый"));
 }

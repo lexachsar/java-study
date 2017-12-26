@@ -1,6 +1,6 @@
 package com.lexach.NetCracker.PetShop;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,9 +12,9 @@ public abstract class AbstractAnimal implements Animal {
     protected String breed;
     protected String name;
     protected Integer cost;
-    protected ArrayList<String> character;
+    protected HashSet<String> character;
 
-    AbstractAnimal(String breed, String name, Integer cost, ArrayList<String> character) {
+    AbstractAnimal(String breed, String name, Integer cost, HashSet<String> character) {
         this.breed = breed;
         this.name = name;
         this.cost = cost;
@@ -66,7 +66,7 @@ public abstract class AbstractAnimal implements Animal {
         this.name = arrayListGetRandom(names);
         this.cost = random.nextInt(99999);
 
-        ArrayList<String> varCharacters = characters;
+        HashSet<String> varCharacters = characters;
 
         for (int i = 0; i < random.nextInt(varCharacters.size() - 1); i++) {
             //Удаляем из массива черт характера одну черту (чтобы исключить повторения) и записываем её в массив характера животного
@@ -88,7 +88,7 @@ public abstract class AbstractAnimal implements Animal {
         return this.cost;
     }
 
-    public ArrayList<String> getCharacter() {
+    public HashSet<String> getCharacter() {
         return this.character;
     }
 
