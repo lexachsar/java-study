@@ -1,12 +1,12 @@
 package com.lexach.NetCracker.PetShop;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
 
 import static com.lexach.NetCracker.PetShop.Consts.predatorConst;
 
 public class Predator extends AbstractAnimal {
-    Predator(String breed, String name, Integer cost, ArrayList<String> character) {
+    Predator(String breed, String name, Integer cost, HashSet<String> character) {
         super(breed, name, cost, character);
 
         if (!this.character.contains(predatorConst))

@@ -1,6 +1,7 @@
 package com.lexach.NetCracker.PetShop;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -63,7 +64,14 @@ public abstract class AbstractAnimal implements Animal {
     }
 
     AbstractAnimal(Random random) {
-        this.name = arrayListGetRandom(names);
+        while (this.name == null) {
+            Iterator<String> i = names.iterator();
+            while (i.hasNext())
+                System.out.println(i.next());
+
+            this.name = arrayListGetRandom(names);
+        }
+
         this.cost = random.nextInt(99999);
 
         HashSet<String> varCharacters = characters;
