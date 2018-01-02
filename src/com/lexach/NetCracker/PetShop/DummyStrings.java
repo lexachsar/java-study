@@ -1,9 +1,6 @@
 package com.lexach.NetCracker.PetShop;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Random;
+import java.util.*;
 
 public interface DummyStrings {
 
@@ -19,6 +16,12 @@ public interface DummyStrings {
 
         return array.get(number);
     }
+
+    static String hashSetGetRandom(HashSet<String> set) {
+        Iterator<String> iterator = set.iterator();
+        iterator.next();
+            iterator.next()
+        }
 
     public static final ArrayList<String> askForNewAnimal = new ArrayList<String>(Arrays.asList(
             "Подозрительный незнакомец в пальто принес вам странное животное. Вас завтра увольняют, поэтому нет смысла разбираться, что это такое. Введите любые данные."));
