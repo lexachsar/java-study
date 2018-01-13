@@ -1,6 +1,25 @@
 package com.lexach.NetCracker.PetShop;
 
+import java.io.PrintStream;
+import java.util.Scanner;
+
 public interface Consts {
+    static Boolean yesNo(Scanner scanner, PrintStream StdOut) {
+        while (true) {
+
+            char answer = scanner.next().charAt(0);
+
+            switch (answer) {
+                case yes:
+                    return true;
+                case no:
+                    return false;
+                default:
+                    StdOut.println("Specified input is incorrect.");
+            }
+        }
+    }
+
     public static final char yes = 'y';
     public static final char no = 'n';
 

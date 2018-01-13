@@ -1,5 +1,6 @@
 package com.lexach.NetCracker.PetShop;
 
+import java.io.PrintStream;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Random;
@@ -69,17 +70,16 @@ public abstract class AbstractAnimal implements Animal {
             while (i.hasNext())
                 System.out.println(i.next());
 
-            this.name = arrayListGetRandom(names);
+            this.name = hashSetGetRandom(names, random);
         }
 
         this.cost = random.nextInt(99999);
 
-        HashSet<String> varCharacters = characters;
+        String[] varCharacters = characters.toArray(new String[characters.size()]);
 
-        for (int i = 0; i < random.nextInt(varCharacters.size() - 1); i++) {
-            //Удаляем из массива черт характера одну черту (чтобы исключить повторения) и записываем её в массив характера животного
-            String varCharacter = varCharacters.remove(random.nextInt(varCharacters.size() - 1));
-            this.character.add(varCharacter);
+        for (int i = 0; i < random.nextInt(varCharacters.length - 1); i++) {
+            //Записываем черту из массива всех черт характера в массив характера животного
+            this.character.add(varCharacters[i]);
         }
 
     }
@@ -101,4 +101,52 @@ public abstract class AbstractAnimal implements Animal {
     }
 
 
+    //Вывод породы животного
+    public String printBreed(PrintStream StdOut) {
+        StdOut.print("Breed of the animal: " + this.getBreed());
+
+        return this.breed;
+    }
+
+    //вывод имени животного
+    public String printName(PrintStream StdOut) {
+        StdOut.print("Name of the animal: " + this.getName());
+
+        return this.name;
+    }
+
+    //Вывод цены животного
+    public Integer printCost(PrintStream StdOut) {
+        StdOut.print("Cost of the animal: " + this.getCost());
+
+        return this.cost;
+    }
+
+    //Вывод черт характера животного
+    public HashSet<String> printCharacter(PrintStream StdOut) {
+        //Перевод хеш сета характеров животного в массив характеров животного
+        String[] varCharacters = this.getCharacter().toArray(new String[this.getCharacter().size()]);
+
+        //Вывод черт характера животного
+        System.out.println("Animal character traits:");
+        for (String character : varCharacters) {
+            StdOut.println(character);
+        }
+
+        return this.character;
+    }
+
+
+    //вывод информации о животном
+    public AbstractAnimal print(PrintStream StdOut){
+        printName(StdOut);
+
+        printBreed(StdOut);
+
+        printCharacter(StdOut);
+
+        printCost(StdOut);
+
+        return this;
+    }
 }

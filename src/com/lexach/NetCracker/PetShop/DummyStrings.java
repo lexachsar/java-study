@@ -18,10 +18,21 @@ public interface DummyStrings {
     }
 
     static String hashSetGetRandom(HashSet<String> set) {
-        Iterator<String> iterator = set.iterator();
-        iterator.next();
-            iterator.next()
-        }
+        String[] setArray = set.toArray(new String[set.size()]);
+
+        Random rnd = new Random();
+        Integer number = rnd.nextInt(setArray.length - 1);
+
+        return setArray[number];
+    }
+
+    static String hashSetGetRandom(HashSet<String> set, Random random) {
+        String[] setArray = set.toArray(new String[set.size()]);
+
+        Integer number = random.nextInt(setArray.length - 1);
+
+        return setArray[number];
+    }
 
     public static final ArrayList<String> askForNewAnimal = new ArrayList<String>(Arrays.asList(
             "Подозрительный незнакомец в пальто принес вам странное животное. Вас завтра увольняют, поэтому нет смысла разбираться, что это такое. Введите любые данные."));
