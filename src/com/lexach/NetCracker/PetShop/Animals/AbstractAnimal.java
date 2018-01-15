@@ -1,10 +1,7 @@
-package com.lexach.NetCracker.PetShop;
+package com.lexach.NetCracker.PetShop.Animals;
 
 import java.io.PrintStream;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 import static com.lexach.NetCracker.PetShop.DummyStrings.*;
 import static com.lexach.NetCracker.PetShop.Consts.*;
@@ -14,7 +11,7 @@ public abstract class AbstractAnimal implements Animal {
     protected String breed;
     protected String name;
     protected Integer cost;
-    protected HashSet<String> character;
+    protected HashSet<String> character = new HashSet<>();
 
     AbstractAnimal(String breed, String name, Integer cost, HashSet<String> character) {
         this.breed = breed;
@@ -37,39 +34,23 @@ public abstract class AbstractAnimal implements Animal {
 
         System.out.print("Input the price: ");
         this.cost = scanner.nextInt();
+        scanner.nextLine();
 
         Boolean characterInputIsEnded = false;
         do {
             System.out.print("Input the new character trait: ");
-            character.add(scanner.nextLine());
 
-            try {
-                System.out.println("Do you want to finish character input? y/n");
-                char choice = scanner.next().charAt(0);
-                switch (choice) {
-                    case yes:
-                        characterInputIsEnded = true;
+            String var = scanner.nextLine();
+            this.character.add(var);
 
-                    case no:
-                        characterInputIsEnded = false;
+            System.out.println("Do you want to finish character input? y/n");
+            characterInputIsEnded = yesNo(scanner, System.out);
 
-                    default:
-                        throw new Exception("Your answer is not y or n. Aborting character input.");
-                }
-            } catch (Exception excep) {
-                System.out.println(excep.toString());
-                characterInputIsEnded = true;
-            }
-
-        } while (characterInputIsEnded == false);
+        } while (characterInputIsEnded == true);
     }
 
     AbstractAnimal(Random random) {
         while (this.name == null) {
-            Iterator<String> i = names.iterator();
-            while (i.hasNext())
-                System.out.println(i.next());
-
             this.name = hashSetGetRandom(names, random);
         }
 
@@ -77,11 +58,13 @@ public abstract class AbstractAnimal implements Animal {
 
         String[] varCharacters = characters.toArray(new String[characters.size()]);
 
-        for (int i = 0; i < random.nextInt(varCharacters.length - 1); i++) {
+        Integer randBound = random.nextInt(varCharacters.length);
+        for (int i = 0; i < randBound; i++) {
             //Записываем черту из массива всех черт характера в массив характера животного
             this.character.add(varCharacters[i]);
         }
 
+        this.breed = hashSetGetRandom(breeds);
     }
 
     public String getBreed() {

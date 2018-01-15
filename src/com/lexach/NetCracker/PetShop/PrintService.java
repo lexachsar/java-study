@@ -1,7 +1,8 @@
 package com.lexach.NetCracker.PetShop;
 
+import com.lexach.NetCracker.PetShop.Animals.AbstractAnimal;
+
 import java.io.PrintStream;
-import java.util.HashSet;
 
 public class PrintService {
     private static PrintService instance = null;

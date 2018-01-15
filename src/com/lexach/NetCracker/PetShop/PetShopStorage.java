@@ -1,5 +1,7 @@
 package com.lexach.NetCracker.PetShop;
 
+import com.lexach.NetCracker.PetShop.Animals.AbstractAnimal;
+
 import java.io.PrintStream;
 import java.util.ArrayList;
 
@@ -8,7 +10,7 @@ public class PetShopStorage {
     private ArrayList<AbstractAnimal> storage;
 
     private PetShopStorage() {
-        storage = new ArrayList<AbstractAnimal>();
+        storage = new ArrayList<>();
     }
 
     public static PetShopStorage getInstance() {
@@ -23,13 +25,21 @@ public class PetShopStorage {
      * @return Animals storage
      */
     public ArrayList<AbstractAnimal> getStorage() {
-        return storage;
+        return this.storage;
     }
 
     /**
-     * Вывод хранилища животных
+     * @return Storage size
      */
-    public PetShopStorage printPetShopStorage(PrintStream StdOut) {
+    public Integer size() {
+        return this.storage.size();
+    }
+
+    /**
+     * @param StdOut
+     * @return Pet shop storage print and return
+     */
+    public PetShopStorage print(PrintStream StdOut) {
         StdOut.println("List of all animals:");
 
         //Вывод списка всех животных
@@ -39,6 +49,28 @@ public class PetShopStorage {
         }
 
         return this;
+    }
+
+    /**
+     * @param animal
+     * @return Add animal and it
+     */
+    public AbstractAnimal add(AbstractAnimal animal) {
+        storage.add(animal);
+
+        return animal;
+    }
+
+    /**
+     * @param number
+     * @return Remove animal and return in
+     */
+    public AbstractAnimal remove(Integer number) {
+        AbstractAnimal result = storage.get(number);
+
+        storage.remove(number);
+
+        return result;
     }
 
     /**
@@ -100,8 +132,8 @@ public class PetShopStorage {
      * @param lbCost
      * @return Animals search by left bound cost
      */
-    /*
-    public ArrayList<AbstractAnimal> searchCost(PrintStream StdOut, Integer lbCost) {
+
+    public ArrayList<AbstractAnimal> searchLBCost(PrintStream StdOut, Integer lbCost) {
         ArrayList<AbstractAnimal> searchResult = new ArrayList();
 
         try {
@@ -121,14 +153,14 @@ public class PetShopStorage {
 
         return searchResult;
     }
-*/
+
     /**
      * @param StdOut
      * @param rbCost
      * @return Animals search by right bound cost
      */
- /*
-    public ArrayList<AbstractAnimal> searchCost(PrintStream StdOut, Integer rbCost) {
+
+    public ArrayList<AbstractAnimal> searchRBCost(PrintStream StdOut, Integer rbCost) {
         ArrayList<AbstractAnimal> searchResult = new ArrayList();
 
         try {
@@ -148,15 +180,15 @@ public class PetShopStorage {
 
         return searchResult;
     }
-*/
+
     /**
      * @param StdOut
      * @param lbCost
      * @param rbCost
      * @return Animals search by left and right bound cost
      */
-    public ArrayList<AbstractAnimal> searchCost(PrintStream StdOut, Integer lbCost, Integer rbCost) {
-        if(lbCost > rbCost){
+    public ArrayList<AbstractAnimal> searchLBRBCost(PrintStream StdOut, Integer lbCost, Integer rbCost) {
+        if (lbCost > rbCost) {
             Integer buff = rbCost;
             rbCost = lbCost;
             lbCost = buff;
@@ -166,7 +198,6 @@ public class PetShopStorage {
 
         try {
             for (AbstractAnimal animal : this.storage) {
-
                 if (animal.getCost() >= lbCost && animal.getCost() <= rbCost) {
                     searchResult.add(animal);
                 }
@@ -184,18 +215,40 @@ public class PetShopStorage {
     }
 
     /**
-     * @param characterTraits
      * @param StdOut
-     * @return Animals search by character traits
+     * @param lbCost
+     * @param rbCost
+     * @return search by any set of lbCost and rbCost
      */
-    public ArrayList<AbstractAnimal> searchCharacter(ArrayList<String> characterTraits, PrintStream StdOut) {
+    public ArrayList<AbstractAnimal> searchCost(PrintStream StdOut, Integer lbCost, Integer rbCost) {
+        if (lbCost == null && !(rbCost == null)) {
+            return searchRBCost(StdOut, rbCost);
+        }
+
+        if (!(lbCost == null) && rbCost == null) {
+            return searchLBCost(StdOut, lbCost);
+        }
+
+        if (!(lbCost == null) && !(rbCost == null)) {
+            return searchLBRBCost(StdOut, lbCost, rbCost);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param characterTrait
+     * @param StdOut
+     * @return Animals search by character trait
+     */
+    public ArrayList<AbstractAnimal> searchCharacter(String characterTrait, PrintStream StdOut) {
         ArrayList<AbstractAnimal> searchResult = new ArrayList();
 
         try {
 
 
             for (AbstractAnimal animal : this.storage) {
-                if (animal.getCharacter().containsAll(characterTraits)) {
+                if (animal.getCharacter().contains(characterTrait)) {
                     searchResult.add(animal);
                 }
             }
@@ -210,9 +263,4 @@ public class PetShopStorage {
 
         return searchResult;
     }
-
-    public PetShopStorage print(PrintStream StdOut) {
-
-    }
-
 }

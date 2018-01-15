@@ -1,4 +1,6 @@
-package com.lexach.NetCracker.PetShop;
+package com.lexach.NetCracker.PetShop.Animals;
+
+import com.lexach.NetCracker.PetShop.Animals.AbstractAnimal;
 
 import java.util.HashSet;
 import java.util.Random;

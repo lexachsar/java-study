@@ -7,7 +7,7 @@ public interface Consts {
     static Boolean yesNo(Scanner scanner, PrintStream StdOut) {
         while (true) {
 
-            char answer = scanner.next().charAt(0);
+            char answer = scanner.nextLine().charAt(0);
 
             switch (answer) {
                 case yes:
