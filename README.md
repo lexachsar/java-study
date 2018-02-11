@@ -16,8 +16,11 @@ Pet Shop
 2. protected String name; // имя
 3. protected Integer cost; // цена в магазине
 4. protected String character; // характер
+
 [] Геттеры этих состояний вынесены в интерфейс Animal.
+
 [] В конструкторе каждого конкретного типа животного происходит заполнение этих состояний случайными значениями (или предконфигуренными заранее)
+
 [] Объекты конкретных животных хранятся в классе PetShopStorage(Singleton) в виде состояния List<Animal> animals;
 
 #### Buy & Sell Service(Singleton)
