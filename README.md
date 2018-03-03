@@ -1,11 +1,21 @@
 # NetCracker
 Упростить булевскую функцию.
 
+# Задания:
+
+1. [BooleanSimplification;](##BooleanSimplification.)
+2. [PetShop;](##PetShop.)
+3. [Reflection.](##Reflection.)
+
 # Описание заданий:
 ## BooleanSimplification.
+Package: com.lexach.Netcracker.BooleanSimplification
+
 Упростить булевскую функцию.
 
 ## PetShop.
+Package: com.lexach.Netcracker.PetShop
+
 Pet Shop
 ### Phase 1
 
@@ -117,3 +127,16 @@ protected Integer degreeOfPollution;
 [] JSP (использование обновляемых раз в секунду динамических страниц для отображения текущего состояния всех животных)
 
 [] Rest (реализация внешнего API для получения состояния животных в сторонних Web приложениях)
+
+## Reflection.
+
+Package: com.lexach.Netcracker.Reflection
+
+[] Ограничения, которые навешиваются на аннотации. 
+
+[] Написать программу, на вход которо подается класс, а прога пробегается по иерархии наверх и красиво выводит названия методов.
+
+[] Написать аннотацию и пометить ей метод.
+
+[] Подсветить метод, подсвеченный аннотацией.
+
