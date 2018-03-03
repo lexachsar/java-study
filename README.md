@@ -1,19 +1,20 @@
 # NetCracker
 Упростить булевскую функцию.
 
-# Задания:
+# Содержание
 
-1. [BooleanSimplification;](##BooleanSimplification.)
+1. [BooleanSimplification;](#BooleanSimplification)
 2. [PetShop;](##PetShop.)
 3. [Reflection.](##Reflection.)
 
-# Описание заданий:
-## BooleanSimplification.
+# Описание заданий
+## BooleanSimplification
+<a name="BooleanSimplification"><h2>BooleanSimplification</h2></a>
 Package: com.lexach.Netcracker.BooleanSimplification
 
 Упростить булевскую функцию.
 
-## PetShop.
+## PetShop
 Package: com.lexach.Netcracker.PetShop
 
 Pet Shop
@@ -128,7 +129,7 @@ protected Integer degreeOfPollution;
 
 [] Rest (реализация внешнего API для получения состояния животных в сторонних Web приложениях)
 
-## Reflection.
+## Reflection
 
 Package: com.lexach.Netcracker.Reflection
 
