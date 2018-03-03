@@ -4,17 +4,16 @@
 # Содержание
 
 1. [BooleanSimplification;](#BooleanSimplification)
-2. [PetShop;](##PetShop.)
-3. [Reflection.](##Reflection.)
+2. [PetShop;](#PetShop)
+3. [Reflection.](#Reflection)
 
 # Описание заданий
-## BooleanSimplification
 <a name="BooleanSimplification"><h2>BooleanSimplification</h2></a>
 Package: com.lexach.Netcracker.BooleanSimplification
 
 Упростить булевскую функцию.
 
-## PetShop
+<a name="PetShop"><h2>PetShop</h2></a>
 Package: com.lexach.Netcracker.PetShop
 
 Pet Shop
@@ -129,7 +128,7 @@ protected Integer degreeOfPollution;
 
 [] Rest (реализация внешнего API для получения состояния животных в сторонних Web приложениях)
 
-## Reflection
+<a name="Reflection"><h2>Reflection</h2></a>
 
 Package: com.lexach.Netcracker.Reflection
 
