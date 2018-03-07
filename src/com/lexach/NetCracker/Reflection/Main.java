@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
+    /**
+     * Koд с лекции 02.03.18
+     */
     public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         //RTTI -- Object во время выполнения преобразуется в класс Shape
         List<Shape> list = Arrays.asList(new Circle(), new Square());
@@ -15,35 +18,33 @@ public class Main {
         //Class clazz = Circle.class;
         Class clazz = Shape.class;
         // Выводит полное имя класса
-        System.out.println(clazz.getName().toString());
+        System.out.println(" .getName() " + clazz.getName().toString());
         // Выводит интерфейсы
-        System.out.println(clazz.getInterfaces().toString());
+        System.out.println(" .getInterfaces() " + clazz.getInterfaces().toString());
         // Выводит простое имя
-        System.out.println(clazz.getSimpleName().toString());
+        System.out.println(" .getSimpleName() " + clazz.getSimpleName().toString());
         // Выводит каноничное имя (если класс анонимный, то null и.т.д.)
-        System.out.println(clazz.getCanonicalName().toString());
+        System.out.println(" .getCanonicalName() " + clazz.getCanonicalName().toString());
         // Выводит суперкласс
-        System.out.println(clazz.getSuperclass().toString());
+        System.out.println(" .getSuperclass() " + clazz.getSuperclass().toString());
 
         // Выводит методы класса.
-        System.out.println(clazz.getMethods().toString());
+        System.out.println(" .getMethods() " + clazz.getMethods().toString());
         // Выводит декларированные методы класса.
-        System.out.println(clazz.getDeclaredMethods().toString());
+        System.out.println(" .getDeclaredMethods() " + clazz.getDeclaredMethods().toString());
         // Выводит поля класса.
-        System.out.println(clazz.getFields().toString());
+        System.out.println(" .getFields() " + clazz.getFields().toString());
         // Выводит конструкторы класса.
-        System.out.println(clazz.getConstructors().toString());
+        System.out.println(" .getConstructors() " + clazz.getConstructors().toString());
         // Выводит декларированные конструкторы класса.
-        System.out.println(clazz.getDeclaredConstructors().toString());
+        System.out.println(" getDeclaredConstructors() " + clazz.getDeclaredConstructors().toString());
 
         // Create instance of clazz
         Constructor c = clazz.getConstructor();
-        Object o = c.newInstance();
         // Invoke method
         Method m = clazz.getMethods()[0];
         Object[] arr = {"pref", 6};
-        m.invoke(o);
-
+        //m.invoke(o, arr);
 
     }
 }
