@@ -3,6 +3,7 @@ package com.lexach.NetCracker.Reflection.ReflectionHomework;
 import com.lexach.NetCracker.Reflection.Circle;
 
 import javax.xml.bind.SchemaOutputResolver;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.lang.reflect.Type;
@@ -10,7 +11,21 @@ import java.util.ArrayList;
 
 public class ReflectionHomework {
     /**
-     * Метод, который принимает класс и выводит в консоль методы этого класса и всех его предков.
+     * @param varMethod Метод.
+     * @param myAnnotation Аннотация.
+     * @return true, если данный метод имеет данную аннотацию, false, в противном случае.
+     */
+    private static boolean isMethodHasAnnotation(Method varMethod, Class myAnnotation) {
+        if (null != (Annotation) varMethod.getAnnotation(myAnnotation)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    /**
+     * Метод, который принимает класс и выводит в консоль паблик методы этого класса и всех его предков.
      * @param clazz Класс, который принимает данный метод.
      */
     private static Class methodHighlighter(Class clazz){
@@ -21,18 +36,19 @@ public class ReflectionHomework {
             // Перебор всех методов класса clazz, их вывод в читаемом виде.
             for (Method varMethod : methodz) {
                 // Методы, помеченные моей аннотацией будут подсвечиваться " * "
-                if((MyFirstAnnotation)varMethod.getAnnotation(MyFirstAnnotation.class) != null)
+                if(isMethodHasAnnotation(varMethod, MyFirstAnnotation.class)) {
                     System.out.print(" * ");
+                }
 
                 System.out.print(varMethod.getReturnType() + " ");
                 System.out.print(varMethod.getName() + "( ");
 
                 // Создание массива из типов параметров метода.
-                Type[] typez = varMethod.getParameterTypes();
+                Type[] types = varMethod.getParameterTypes();
 
-                // Перебор всех птипов араметров метода, вывод в читаемом виде.
-                for (Type varThype : typez) {
-                    System.out.print(varThype.getTypeName() + " ");
+                // Перебор всех типов параметров метода, вывод в читаемом виде.
+                for (Type varType : types) {
+                    System.out.print(varType.getTypeName() + " ");
                 }
 
                 System.out.println(")");
