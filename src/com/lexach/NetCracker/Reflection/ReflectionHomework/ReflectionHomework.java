@@ -5,6 +5,7 @@ import com.lexach.NetCracker.Reflection.Circle;
 import javax.xml.bind.SchemaOutputResolver;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class ReflectionHomework {
      * @param myAnnotation Аннотация.
      * @return true, если данный метод имеет данную аннотацию, false, в противном случае.
      */
-    private static boolean isMethodHasAnnotation(Method varMethod, Class myAnnotation) {
+    private static boolean doesMethodHaveAnnotation(Method varMethod, Class myAnnotation) {
         if (null != (Annotation) varMethod.getAnnotation(myAnnotation)) {
             return true;
         } else {
@@ -35,23 +36,26 @@ public class ReflectionHomework {
             Method[] methodz = clazz.getMethods();
             // Перебор всех методов класса clazz, их вывод в читаемом виде.
             for (Method varMethod : methodz) {
-                // Методы, помеченные моей аннотацией будут подсвечиваться " * "
-                if(isMethodHasAnnotation(varMethod, MyFirstAnnotation.class)) {
-                    System.out.print(" * ");
+                // Выводим методы, только если они являются публичными.
+                if(Modifier.isPublic(varMethod.getModifiers())) {
+                    // Методы, помеченные моей аннотацией будут подсвечиваться " * "
+                    if (doesMethodHaveAnnotation(varMethod, MyFirstAnnotation.class)) {
+                        System.out.print(" * ");
+                    }
+
+                    System.out.print(varMethod.getReturnType() + " ");
+                    System.out.print(varMethod.getName() + "( ");
+
+                    // Создание массива из типов параметров метода.
+                    Type[] types = varMethod.getParameterTypes();
+
+                    // Перебор всех типов параметров метода, вывод в читаемом виде.
+                    for (Type varType : types) {
+                        System.out.print(varType.getTypeName() + " ");
+                    }
+
+                    System.out.println(")");
                 }
-
-                System.out.print(varMethod.getReturnType() + " ");
-                System.out.print(varMethod.getName() + "( ");
-
-                // Создание массива из типов параметров метода.
-                Type[] types = varMethod.getParameterTypes();
-
-                // Перебор всех типов параметров метода, вывод в читаемом виде.
-                for (Type varType : types) {
-                    System.out.print(varType.getTypeName() + " ");
-                }
-
-                System.out.println(")");
             }
 
             if(clazz.getSuperclass() == null) {
