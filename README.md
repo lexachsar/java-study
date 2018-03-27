@@ -8,7 +8,7 @@
 ## Package: 
 com.lexach.netcracker.bool.simplification
 
-# 2. [PetShop](src/com/lexach/netcracker/pet.shop);
+# 2. [PetShop](src/com/lexach/netcracker/pet/shop);
 
 ## Package: 
 com.lexach.netcracker.pet.shop
