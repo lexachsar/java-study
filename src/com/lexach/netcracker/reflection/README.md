@@ -1,6 +1,6 @@
 <a name="Reflection"><h2>Reflection</h2></a>
 
-Package: com.lexach.Netcracker.Reflection
+Package: com.lexach.netcracker.reflection
 
 ### [x] Какие ограничения имеют аннотации?
 

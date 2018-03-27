@@ -1,5 +1,5 @@
 <a name="PetShop"><h2>PetShop</h2></a>
-Package: com.lexach.Netcracker.PetShop
+Package: com.lexach.netcracker.petshop
 
 Pet Shop
 ### Phase 1
