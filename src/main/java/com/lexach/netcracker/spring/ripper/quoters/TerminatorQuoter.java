@@ -9,7 +9,7 @@ public class TerminatorQuoter implements Quoter {
     }
 
     public void sayQuote() {
-        System.out.println("Message:" + this.message);
+        System.out.println("Message: " + this.message);
     }
 
 }
