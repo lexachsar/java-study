@@ -5,7 +5,9 @@
        xsi:schemaLocation = "http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean class = "com.lexach.netcracker.spring.ripper.quoters.TerminatorQuoter" id="terminatorQuoter">
+    <bean class="com.lexach.netcracker.spring.ripper.quoters.InjectRandomIntAnnotationBeanPostProcessor"/>
+
+    <bean class="com.lexach.netcracker.spring.ripper.quoters.TerminatorQuoter" id="terminatorQuoter">
         <property name = "message" value = "I'll be back"/>
     </bean>
 
