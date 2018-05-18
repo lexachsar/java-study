@@ -9,20 +9,31 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Document doc = Jsoup.connect("https://www.wildberries.ru").get();
 
-        String title = doc.title();
+        String linkNext = "https://www.wildberries.ru/catalog/zhenshchinam/odezhda?page=1";
 
-        Elements links = doc.select("a[href]");
+        while (true) {
 
-        for (Element link : links) {
+            Document doc = Jsoup.connect(linkNext).get();
 
-            // get the value from href attribute
-            System.out.println("\nLink : " + link.attr("href"));
-            System.out.println("Text : " + link.text());
+            //Elements links = doc.select("a[href]");
+
+            Elements links = doc.getElementsByClass("catalog-prev-link");
+
+            linkNext = "https://wildberries.ru/" + doc.getElementsByClass("next").first().attr("href");
+
+
+            System.out.println(linkNext);
+
+            for (Element link : links) {
+
+                // get the value from href attribute
+                System.out.println("\nLink : " + link);
+                System.out.println("Text : " + link.text());
+            }
+
+            String title = doc.title();
+            System.out.println("title is" + title);
         }
-
-        System.out.println("title is" + title);
-
     }
 }
