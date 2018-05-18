@@ -6,34 +6,41 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 public class Main {
+
+    private static String parseProduct(String productLink) throws IOException {
+        Document doc = Jsoup.connect(productLink).get();
+
+        Element productInfo = doc.getElementById("insideContainer");
+
+        System.out.println(productInfo);
+
+        return productLink;
+    }
+
     public static void main(String[] args) throws IOException {
 
-        String linkNext = "https://www.wildberries.ru/catalog/zhenshchinam/odezhda?page=1";
+        String linkNext = "1";
 
-        while (true) {
+        for(int i = 1; i <= 500; i++) {
 
-            Document doc = Jsoup.connect(linkNext).get();
+            Document doc = Jsoup.connect("https://www.wildberries.ru/catalog/zhenshchinam/odezhda?page=" + i).get();
 
             //Elements links = doc.select("a[href]");
 
             Elements links = doc.getElementsByClass("catalog-prev-link");
 
-            linkNext = "https://wildberries.ru/" + doc.getElementsByClass("next").first().attr("href");
-
-
             System.out.println(linkNext);
 
             for (Element link : links) {
 
-                // get the value from href attribute
-                System.out.println("\nLink : " + link);
-                System.out.println("Text : " + link.text());
+                // get product info
+                parseProduct("https://www.wildberries.ru/" + link.attr("href"));
+
             }
 
-            String title = doc.title();
-            System.out.println("title is" + title);
         }
     }
 }
