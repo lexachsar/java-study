@@ -10,15 +10,15 @@
 
     <context:annotation-config/>
 
-    <bean class="com.lexach.netcracker.spring.ripper.quoters.PostProxyInvokerContextListener"/>
+    <bean class="com.lexach.netcracker.frameworks.spring.ripper.quoters.PostProxyInvokerContextListener"/>
 
-    <bean class="com.lexach.netcracker.spring.ripper.quoters.ProfilingHandlerBeanPostProcessor"/>
+    <bean class="com.lexach.netcracker.frameworks.spring.ripper.quoters.ProfilingHandlerBeanPostProcessor"/>
 
     <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
 
-    <bean class="com.lexach.netcracker.spring.ripper.quoters.InjectRandomIntAnnotationBeanPostProcessor"/>
+    <bean class="com.lexach.netcracker.frameworks.spring.ripper.quoters.InjectRandomIntAnnotationBeanPostProcessor"/>
 
-    <bean class="com.lexach.netcracker.spring.ripper.quoters.TerminatorQuoter" id="terminatorQuoter">
+    <bean class="com.lexach.netcracker.frameworks.spring.ripper.quoters.TerminatorQuoter" id="terminatorQuoter">
         <property name = "message" value = "I'll be back"/>
     </bean>
 
