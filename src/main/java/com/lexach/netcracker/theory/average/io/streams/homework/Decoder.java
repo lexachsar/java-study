@@ -1,4 +1,4 @@
-package com.lexach.netcracker.theory.io.streams.homework;
+package com.lexach.netcracker.theory.average.io.streams.homework;
 
 import sun.misc.BASE64Decoder;
 

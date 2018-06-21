@@ -22,7 +22,7 @@ com.lexach.netcracker.theory.advanced.reflection
 
 ## Packages:
 - Generics: com.lexach.netcracker.theory.advanced.generics
-- I/O Streams: com.lexach.netcracker.theory.io.streams
+- I/O Streams: com.lexach.netcracker.theory.average.io.streams
 
 
 # 5. [Threads](src/com/lexach/netcracker/threads).

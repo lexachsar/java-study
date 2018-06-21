@@ -1,4 +1,4 @@
-package com.lexach.netcracker.theory.io.streams;
+package com.lexach.netcracker.theory.average.io.streams;
 
 import java.io.*;
 import java.nio.charset.Charset;
